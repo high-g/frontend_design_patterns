@@ -1,6 +1,14 @@
+let instance
 let counter = 0
 
 class Counter {
+  constructor() {
+    if (instance) {
+      throw new Error('one instance!')
+    }
+    instance = this
+  }
+
   getInstance() {
     return this
   }
