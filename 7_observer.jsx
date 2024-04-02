@@ -1,4 +1,5 @@
 import { ToastContainer, toast } from 'react-toastify'
+import { Button, Switch, FormControlLabel } from '@mui/material'
 
 class Observable {
   constructor() {
@@ -20,12 +21,24 @@ class Observable {
 
 const observable = new Observable()
 
-function logger(data) {
+const logger = (data) => {
   console.log(`${Date.now()} ${data}`)
 }
 
-function toastify(data) {
-  toast(data)
+const toastify = (data) => {
+  toast(data, {
+    position: toast.POSITION.BOTTOM_RIGHT,
+    closeButton: false,
+    autoclose: 2000,
+  })
+}
+
+const handleClick = () => {
+  observable.notify('User clicked button!')
+}
+
+const handleToggle = () => {
+  observable.notify('User toggled switch!')
 }
 
 observable.subscribe(logger)
@@ -34,7 +47,7 @@ observable.subscribe(toastify)
 export default function App() {
   return (
     <div className="App">
-      <Button>Click</Button>
+      <Button onClick={handleClick}>Click</Button>
       <FormControlLabel control={<Switch />} />
       <ToastContainer />
     </div>
