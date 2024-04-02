@@ -4,8 +4,22 @@
   "description": "",
   "main": "3_singletone.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build7": "bun build ./7_observer.jsx --outdir ./build"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "@types/web": "^0.0.142",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-toastify": "^10.0.5"
+  }
 }
