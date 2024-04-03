@@ -33,6 +33,9 @@ const toastify = (data) => {
   })
 }
 
+observable.subscribe(logger)
+observable.subscribe(toastify)
+
 const handleClick = () => {
   observable.notify('User clicked button!')
 }
@@ -41,14 +44,11 @@ const handleToggle = () => {
   observable.notify('User toggled switch!')
 }
 
-observable.subscribe(logger)
-observable.subscribe(toastify)
-
 export default function App() {
   return (
     <div className="App">
       <Button onClick={handleClick}>Click</Button>
-      <FormControlLabel control={<Switch />} />
+      <FormControlLabel control={<Switch name="" onChange={handleToggle} />} label="Toggle me!" />
       <ToastContainer />
     </div>
   )
